@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github as GitHub, Twitter, Linkedin, Heart } from 'lucide-react';
+import { Github as GitHub, Linkedin, Heart } from 'lucide-react';
 import { PersonalInfo } from '../types';
 
 interface FooterProps {
@@ -12,7 +12,6 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
   const socialIcons: Record<string, React.ReactNode> = {
     Github: <GitHub size={20} />,
     Linkedin: <Linkedin size={20} />,
-    Twitter: <Twitter size={20} />,
   };
   
   return (
@@ -20,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#top" className="text-xl font-bold text-blue-400">
+            <a href="#top" className="text-xl font-bold text-[#3db5e6]">
               {personalInfo.name.split(' ')[0]}<span className="text-white">.dev</span>
             </a>
             <p className="text-gray-400 mt-2 max-w-md">
@@ -35,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-gray-400 hover:text-[#3db5e6] transition-colors"
                 aria-label={link.name}
               >
                 {socialIcons[link.icon] || link.name}
@@ -50,19 +49,19 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
           </div>
           
           <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
-            <a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a href="#about" className="text-gray-400 hover:text-[#3db5e6] transition-colors text-sm">
               About
             </a>
-            <a href="#skills" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a href="#skills" className="text-gray-400 hover:text-[#3db5e6] transition-colors text-sm">
               Skills
             </a>
-            <a href="#experience" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a href="#experience" className="text-gray-400 hover:text-[#3db5e6] transition-colors text-sm">
               Experience
             </a>
-            <a href="#projects" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a href="#projects" className="text-gray-400 hover:text-[#3db5e6] transition-colors text-sm">
               Projects
             </a>
-            <a href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a href="#contact" className="text-gray-400 hover:text-[#3db5e6] transition-colors text-sm">
               Contact
             </a>
           </div>

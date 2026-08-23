@@ -11,7 +11,7 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   type?: 'button' | 'submit' | 'reset';
-  download?: boolean;
+  download?: boolean | string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -26,12 +26,12 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   download,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantStyles = {
-    primary: 'bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-emerald-500',
+    primary: 'bg-[#3db5e6] hover:bg-[#2a9bc9] text-white focus:ring-[#3db5e6]',
     secondary: 'bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500',
-    outline: 'border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 focus:ring-emerald-500',
+    outline: 'border-2 border-[#3db5e6] text-[#3db5e6] hover:bg-[#e6f6fc] focus:ring-[#3db5e6]',
     ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
   };
   

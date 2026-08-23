@@ -57,39 +57,40 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
   };
   
   return (
-    <section id="contact" className="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-16 bg-[#13284c]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          light
           title="Contact Me"
           subtitle="Let's connect and discuss your next project"
         />
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+            <h3 className="text-2xl font-bold text-white mb-6">
               Get In Touch
             </h3>
             
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg text-white mb-8 leading-relaxed">
               I'm always open to new opportunities and collaborations. Feel free to reach out
               if you have any questions or want to discuss a potential project.
             </p>
             
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md mb-8">
+            <div className="bg-[#0f2038] rounded-lg p-6 shadow-md mb-8">
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-3">
-                  <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <div className="bg-[#13284c] rounded-full p-3">
+                  <Mail className="w-6 h-6 text-[#3db5e6]" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
+                  <h4 className="text-lg font-semibold text-white">
                     Email Me
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  <p className="text-white/70 mt-2">
                     For any inquiries, feel free to drop me an email at:
                   </p>
                   <a 
                     href={`mailto:${personalInfo.email}`} 
-                    className="text-blue-600 dark:text-blue-400 hover:underline mt-1 inline-block"
+                    className="text-[#3db5e6] hover:underline mt-1 inline-block"
                   >
                     {personalInfo.email}
                   </a>
@@ -98,7 +99,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
             </div>
           </div>
           
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-md">
+          <div className="bg-[#0f2038] rounded-lg p-8 shadow-md">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -117,10 +118,10 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   Message Sent!
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-white/70 mb-6">
                   Thank you for your message. I'll get back to you as soon as possible.
                 </p>
                 <Button 
@@ -132,7 +133,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+                <h3 className="text-2xl font-bold text-white mb-6">
                   Send Me A Message
                 </h3>
                 
@@ -146,7 +147,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                   <div>
                     <label 
                       htmlFor="name" 
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                      className="block text-sm font-medium text-white mb-1"
                     >
                       Name <span className="text-red-500">*</span>
                     </label>
@@ -156,7 +157,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       name="name" 
                       value={formData.name} 
                       onChange={handleChange} 
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white" 
+                      className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
                       required 
                     />
                   </div>
@@ -164,7 +165,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                   <div>
                     <label 
                       htmlFor="email" 
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                      className="block text-sm font-medium text-white mb-1"
                     >
                       Email <span className="text-red-500">*</span>
                     </label>
@@ -174,7 +175,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       name="email" 
                       value={formData.email} 
                       onChange={handleChange} 
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white" 
+                      className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
                       required 
                     />
                   </div>
@@ -183,7 +184,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                 <div className="mb-4">
                   <label 
                     htmlFor="subject" 
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    className="block text-sm font-medium text-white mb-1"
                   >
                     Subject
                   </label>
@@ -193,14 +194,14 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     name="subject" 
                     value={formData.subject} 
                     onChange={handleChange} 
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white" 
+                    className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
                   />
                 </div>
                 
                 <div className="mb-6">
                   <label 
                     htmlFor="message" 
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    className="block text-sm font-medium text-white mb-1"
                   >
                     Message <span className="text-red-500">*</span>
                   </label>
@@ -210,7 +211,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     rows={5} 
                     value={formData.message} 
                     onChange={handleChange} 
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white" 
+                    className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
                     required 
                   ></textarea>
                 </div>

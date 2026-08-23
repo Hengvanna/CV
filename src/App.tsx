@@ -38,9 +38,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-white text-gray-900">
+      <div className="h-1.5 w-full bg-[#3db5e6]" />
       <div className="relative">
-        <div className="absolute inset-0 bg-emerald-500 skew-y-6 -translate-y-1/2 -z-10"></div>
         <Header personalInfo={personalInfo} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Hero personalInfo={personalInfo} />
       </div>

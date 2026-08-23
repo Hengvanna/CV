@@ -10,9 +10,10 @@ interface ProjectsProps {
 
 const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects" className="py-16 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-16 bg-[#13284c]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          light
           title="Projects"
           subtitle="Some of my recent work and contributions"
         />
@@ -41,7 +42,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   
   return (
     <div 
-      className="group bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-fadeIn"
+      className="group bg-[#0f2038] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-fadeIn"
       style={{ animationDelay: `${index * 0.2}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -51,7 +52,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${
+              project.imageContain ? 'object-contain bg-[#f98012] p-8' : 'object-cover'
+            }`}
           />
           <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 ${
             isHovered ? 'opacity-100' : 'opacity-0'
@@ -62,7 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
                   aria-label="View GitHub Repository"
                 >
                   <Github size={20} />
@@ -74,7 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
                   aria-label="View Live Project"
                 >
                   <ExternalLink size={20} />
@@ -86,11 +89,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       )}
       
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
+        <h3 className="text-xl font-bold text-white mb-3">
           {project.title}
         </h3>
         
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
+        <p className="text-white/80 mb-4">
           {project.description}
         </p>
         
@@ -98,14 +101,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.technologies.map((tech, idx) => (
             <span 
               key={idx}
-              className="px-2 py-1 text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 rounded-full"
+              className="px-2 py-1 text-xs bg-[#13284c] text-[#3db5e6] border border-[#3db5e6]/40 rounded-full"
             >
               {tech}
             </span>
           ))}
         </div>
         
-        <div className="flex space-x-3 mt-4">
+        <div className="flex flex-wrap gap-3 mt-4">
           {project.github && (
             <Button 
               href={project.github} 
@@ -117,6 +120,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </Button>
           )}
           
+          {project.secondaryLink && (
+            <Button 
+              href={project.secondaryLink} 
+              variant="outline" 
+              size="sm" 
+              icon={ExternalLink}
+            >
+              {project.secondaryLabel || 'Learn More'}
+            </Button>
+          )}
+          
           {project.link && (
             <Button 
               href={project.link} 
@@ -124,7 +138,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               size="sm" 
               icon={ExternalLink}
             >
-              Live Demo
+              {project.linkLabel || 'View Project'}
             </Button>
           )}
         </div>

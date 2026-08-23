@@ -18,7 +18,7 @@ export interface Education {
   institution: string;
   location: string;
   period: string;
-  description?: string;
+  description?: string | string[];
 }
 
 export interface Project {
@@ -26,8 +26,12 @@ export interface Project {
   description: string;
   technologies: string[];
   link?: string;
+  linkLabel?: string;
+  secondaryLink?: string;
+  secondaryLabel?: string;
   github?: string;
   image?: string;
+  imageContain?: boolean;
 }
 
 export interface Social {

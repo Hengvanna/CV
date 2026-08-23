@@ -39,14 +39,14 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
     <header 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white dark:bg-gray-900 shadow-md py-3' 
+          ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' 
           : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
-          <a href="#top" className="text-xl font-bold text-blue-600 dark:text-blue-400">
-            {personalInfo.name.split(' ')[0]}<span className="text-gray-800 dark:text-white">.dev</span>
+          <a href="#top" className="text-xl font-bold text-[#3db5e6]">
+            {personalInfo.name.split(' ')[0]}<span className="text-[#13284c]">.dev</span>
           </a>
 
           {/* Desktop navigation */}
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
                 <li key={item.label}>
                   <a 
                     href={item.href}
-                    className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                    className="text-gray-700 hover:text-[#3db5e6] dark:text-gray-300 dark:hover:text-[#3db5e6] transition-colors"
                   >
                     {item.label}
                   </a>
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
                   size="sm" 
                   icon={DownloadCloud} 
                   href={personalInfo.resumeUrl}
-                  download
+                  download="Heng-Vanna-Resume.pdf"
                 >
                   Resume
                 </Button>
@@ -110,13 +110,13 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
+        <div className="md:hidden bg-white shadow-lg">
           <ul className="py-2 px-4">
             {navItems.map((item) => (
               <li key={item.label} className="py-2">
                 <a 
                   href={item.href}
-                  className="block text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                  className="block text-gray-700 hover:text-[#3db5e6] dark:text-gray-300 dark:hover:text-[#3db5e6]"
                   onClick={toggleMobileMenu}
                 >
                   {item.label}
@@ -131,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
                   size="sm" 
                   icon={DownloadCloud}
                   href={personalInfo.resumeUrl}
-                  download
+                  download="Heng-Vanna-Resume.pdf"
                   className="w-full"
                 >
                   Download Resume
