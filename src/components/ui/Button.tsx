@@ -26,12 +26,12 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   download,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantStyles = {
-    primary: 'bg-[#3db5e6] hover:bg-[#2a9bc9] text-white focus:ring-[#3db5e6]',
+    primary: 'bg-[#3db5e6] hover:bg-[#2a9bc9] text-white shadow-lg shadow-[#3db5e6]/25 hover:-translate-y-0.5 focus:ring-[#3db5e6]',
     secondary: 'bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500',
-    outline: 'border-2 border-[#3db5e6] text-[#3db5e6] hover:bg-[#e6f6fc] focus:ring-[#3db5e6]',
+    outline: 'border-2 border-[#3db5e6] text-[#3db5e6] hover:bg-[#3db5e6] hover:text-white focus:ring-[#3db5e6]',
     ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
   };
   

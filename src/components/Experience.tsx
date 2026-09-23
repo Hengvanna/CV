@@ -9,7 +9,7 @@ interface ExperienceProps {
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <section id="experience" className="py-16 bg-[#13284c]">
+    <section id="experience" className="scroll-mt-24 py-20 bg-[#13284c]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           light
@@ -28,9 +28,9 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
                 <Briefcase className="w-4 h-4 text-white" />
               </div>
               
-              <div className="bg-[#0f2038] rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="rounded-2xl border border-white/10 bg-[#0b1c33] p-6 shadow-xl">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="font-display text-xl font-bold text-white">
                     {experience.title}
                   </h3>
                   

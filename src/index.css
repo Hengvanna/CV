@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #ffffff;
+  @apply antialiased text-gray-800;
+}
+
+::selection {
+  background-color: #3db5e6;
+  color: #ffffff;
+}
+
+.profile-orbit {
+  --orbit-inner: -8.25rem;
+  --orbit-outer: -11.5rem;
+}
+
+@media (min-width: 640px) {
+  .profile-orbit {
+    --orbit-inner: -11.5rem;
+    --orbit-outer: -15.5rem;
+  }
+}
+
+.orbit-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation: run-around 16s linear infinite;
+}
+
+.orbit-item-reverse {
+  animation-name: run-around-reverse;
+  animation-duration: 12s;
+}
+
+@keyframes run-around {
+  from {
+    transform: rotate(var(--start)) translateY(var(--r)) rotate(calc(var(--start) * -1));
+  }
+  to {
+    transform: rotate(calc(var(--start) + 360deg)) translateY(var(--r)) rotate(calc((var(--start) + 360deg) * -1));
+  }
+}
+
+@keyframes run-around-reverse {
+  from {
+    transform: rotate(var(--start)) translateY(var(--r)) rotate(calc(var(--start) * -1));
+  }
+  to {
+    transform: rotate(calc(var(--start) - 360deg)) translateY(var(--r)) rotate(calc((var(--start) - 360deg) * -1));
+  }
 }

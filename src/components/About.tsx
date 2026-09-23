@@ -9,7 +9,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ personalInfo }) => {
   return (
-    <section id="about" className="py-16 bg-[#13284c]">
+    <section id="about" className="scroll-mt-24 py-20 bg-[#13284c]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           light
@@ -19,28 +19,28 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <p className="text-lg text-white mb-6 leading-relaxed">
+            <p className="text-lg text-white/90 mb-6 leading-relaxed">
               I am an aspiring software developer with strong interests in mobile and web development.
               I have hands-on experience building applications using Flutter, React, and Laravel, with
               both SQLite and MySQL databases.
             </p>
             
-            <p className="text-lg text-white mb-6 leading-relaxed">
+            <p className="text-lg text-white/90 mb-6 leading-relaxed">
               I enjoy creating full-stack solutions such as dashboards, APIs, and course management systems.
             </p>
             
-            <p className="text-lg text-white mb-6 leading-relaxed">
+            <p className="text-lg text-white/90 mb-6 leading-relaxed">
               I continuously improve my technical skills through Udemy courses and self-directed learning.
             </p>
             
-            <p className="text-lg text-white leading-relaxed">
+            <p className="text-lg text-white/90 leading-relaxed">
               Dedicated and detail-oriented, I aim to become a proficient full-stack or mobile developer
               capable of building scalable and user-friendly applications.
             </p>
           </div>
           
-          <div className="bg-[#0f2038] rounded-lg p-8 shadow-md">
-            <h3 className="text-2xl font-bold text-white mb-6">
+          <div className="rounded-2xl border border-white/10 bg-[#0b1c33] p-8 shadow-xl">
+            <h3 className="font-display text-2xl font-bold text-white mb-6">
               Personal Information
             </h3>
             
@@ -86,7 +86,7 @@ const About: React.FC<AboutProps> = ({ personalInfo }) => {
             
             <hr className="my-6 border-white/20" />
             
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="font-display text-2xl font-bold text-white mb-6">
               Languages
             </h3>
             

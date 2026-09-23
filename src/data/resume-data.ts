@@ -1,4 +1,4 @@
-import { Education, Experience, PersonalInfo, Project, Skill } from '../types';
+import { Education, Experience, PersonalInfo, Project, Skill, Certificate } from '../types';
 
 export const personalInfo: PersonalInfo = {
   name: 'Heng Vanna',
@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   email: 'vanna.edu.168@gmail.com',
   phone: '+855 966379997',
   location: '193b Preah Norodom Blvd (41), Phnom Penh',
-  bio: 'Passionate Full-Stack Developer with hands-on experience building modern web applications using React, Laravel, Node.js, and MySQL. Skilled in developing responsive user interfaces, RESTful APIs, database-driven applications, and integrating third-party services. Committed to writing clean, maintainable code, solving technical problems, and creating intuitive user experiences. Currently pursuing a degree in Software Development and continuously expanding my skills in modern web technologies.',
+  bio: 'Aspiring software developer focused on mobile and web. I build full-stack applications with Flutter, React, and Laravel — including dashboards, APIs, and course management systems.',
   socialLinks: [
     { name: 'GitHub', url: 'https://github.com/Hengvanna', icon: 'Github' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/heng-vanna-8b258b261/', icon: 'Linkedin' },
@@ -93,5 +93,58 @@ export const projects: Project[] = [
     title: 'HENG HENG Tire Management',
     description: 'Developed a web-based Tire Management System for managing tire inventory, sales, customers, and business operations. The system helps track stock levels, manage sales transactions, monitor tire products, and generate business reports to improve operational efficiency and data management.',
     technologies: ['Laravel', 'React', 'MySQL', 'RESTful APIs'],
+  },
+];
+
+export const certificates: Certificate[] = [
+  {
+    title: 'AI Fundamentals',
+    issuer: 'Google · Coursera',
+    period: 'September 2026',
+    description: 'Generative AI concepts, structured prompting, and evaluating AI outputs for accurate, responsible workplace use.',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/V4OSTNOMAHAZ',
+  },
+  {
+    title: 'AI for App Building',
+    issuer: 'Google · Coursera',
+    period: 'September 2026',
+    description: 'Built a functional web app with vibe coding and Google AI Studio, turning natural language into working code.',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/2SHLCFX77O4D',
+  },
+  {
+    title: 'AI for App Deployment',
+    issuer: 'Google · Coursera',
+    period: 'September 2026',
+    description: 'Turned a prototype into a shareable app: testing, AI-assisted debugging, first-time user setup, and access permissions.',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/03O20STEHR4A',
+  },
+  {
+    title: 'AI for Content Creation',
+    issuer: 'Google · Coursera',
+    period: 'September 2026',
+    description: 'Created visual assets and presentations with Gemini image, video, and Google Slides, aligned to brand guidelines.',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/64CEWQDUDNPM',
+  },
+  {
+    title: 'AI for Research and Insights',
+    issuer: 'Google · Coursera',
+    period: 'September 2026',
+    description: 'Used Gemini Deep Research and Notebook to synthesize sources, extract themes, and verify AI-generated findings.',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/2YP41C5039P9',
+  },
+  {
+    title: 'Flutter Development',
+    issuer: 'Udemy',
+    description: 'Mobile app development with Flutter and Dart, including UI design and practical project work.',
+  },
+  {
+    title: 'React.js',
+    issuer: 'Udemy',
+    description: 'Frontend development with React for building responsive web applications and dashboards.',
+  },
+  {
+    title: 'Laravel',
+    issuer: 'Udemy',
+    description: 'Backend and full-stack development with Laravel, RESTful APIs, and MySQL.',
   },
 ];

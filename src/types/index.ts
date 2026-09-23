@@ -34,6 +34,15 @@ export interface Project {
   imageContain?: boolean;
 }
 
+export interface Certificate {
+  title: string;
+  issuer: string;
+  period?: string;
+  description?: string;
+  credentialUrl?: string;
+  image?: string;
+}
+
 export interface Social {
   name: string;
   url: string;

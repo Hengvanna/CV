@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
     { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
     { label: 'Education', href: '#education' },
+    { label: 'Certificates', href: '#certificates' },
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -39,24 +40,24 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
     <header 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' 
+          ? 'bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-100 py-3' 
           : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
-          <a href="#top" className="text-xl font-bold text-[#3db5e6]">
+          <a href="#top" className="font-display text-xl font-extrabold text-[#3db5e6]">
             {personalInfo.name.split(' ')[0]}<span className="text-[#13284c]">.dev</span>
           </a>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ul className="flex space-x-6">
+          <div className="hidden lg:flex items-center space-x-6">
+            <ul className="flex space-x-5">
               {navItems.map((item) => (
                 <li key={item.label}>
                   <a 
                     href={item.href}
-                    className="text-gray-700 hover:text-[#3db5e6] dark:text-gray-300 dark:hover:text-[#3db5e6] transition-colors"
+                    className="text-sm font-medium text-[#13284c]/80 hover:text-[#3db5e6] transition-colors"
                   >
                     {item.label}
                   </a>
@@ -67,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
             <div className="flex items-center space-x-3">
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-full text-[#13284c] hover:bg-gray-100 transition-colors"
                 aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -88,18 +89,17 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center space-x-3 md:hidden">
+          <div className="flex items-center space-x-3 lg:hidden">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              className="p-2 rounded-full text-[#13284c] hover:bg-gray-100 transition-colors"
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              className="p-2 rounded-full text-[#13284c] hover:bg-gray-100"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -110,13 +110,13 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, darkMode, toggleDarkMode 
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <ul className="py-2 px-4">
+        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-lg">
+          <ul className="py-3 px-4">
             {navItems.map((item) => (
               <li key={item.label} className="py-2">
                 <a 
                   href={item.href}
-                  className="block text-gray-700 hover:text-[#3db5e6] dark:text-gray-300 dark:hover:text-[#3db5e6]"
+                  className="block font-medium text-[#13284c] hover:text-[#3db5e6]"
                   onClick={toggleMobileMenu}
                 >
                   {item.label}

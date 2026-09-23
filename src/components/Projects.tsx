@@ -10,7 +10,7 @@ interface ProjectsProps {
 
 const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects" className="py-16 bg-[#13284c]">
+    <section id="projects" className="scroll-mt-24 py-20 bg-[#10243f]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           light
@@ -42,7 +42,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   
   return (
     <div 
-      className="group bg-[#0f2038] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-fadeIn"
+      className="group rounded-2xl border border-white/10 bg-[#0b1c33] overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 animate-fadeIn"
       style={{ animationDelay: `${index * 0.2}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -57,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             }`}
           />
           <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 ${
-            isHovered ? 'opacity-100' : 'opacity-0'
+            isHovered ? 'opacity-100' : 'opacity-100 md:opacity-0 md:group-hover:opacity-100'
           }`}>
             <div className="absolute bottom-4 left-4 flex space-x-2">
               {project.github && (
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
+                  className="bg-[#13284c] text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
                   aria-label="View GitHub Repository"
                 >
                   <Github size={20} />
@@ -77,7 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-gray-900 text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
+                  className="bg-[#13284c] text-white p-2 rounded-full hover:bg-[#3db5e6] transition-colors"
                   aria-label="View Live Project"
                 >
                   <ExternalLink size={20} />
@@ -89,11 +89,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       )}
       
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-3">
+        <h3 className="font-display text-xl font-bold text-white mb-3">
           {project.title}
         </h3>
         
-        <p className="text-white/80 mb-4">
+        <p className="text-white/80 mb-4 leading-relaxed">
           {project.description}
         </p>
         
@@ -101,7 +101,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.technologies.map((tech, idx) => (
             <span 
               key={idx}
-              className="px-2 py-1 text-xs bg-[#13284c] text-[#3db5e6] border border-[#3db5e6]/40 rounded-full"
+              className="px-2.5 py-1 text-xs bg-[#13284c] text-[#3db5e6] border border-[#3db5e6]/40 rounded-full"
             >
               {tech}
             </span>

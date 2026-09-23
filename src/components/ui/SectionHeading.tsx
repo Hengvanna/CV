@@ -8,12 +8,14 @@ interface SectionHeadingProps {
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({ title, subtitle, light = false }) => {
   return (
-    <div className="mb-8">
-      <h2 className={`text-3xl font-bold mb-2 ${light ? 'text-white' : 'text-gray-800'}`}>{title}</h2>
+    <div className="mb-12">
+      <h2 className={`font-display text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 ${light ? 'text-white' : 'text-[#13284c]'}`}>
+        {title}
+      </h2>
       {subtitle && (
-        <p className={`text-lg ${light ? 'text-white/80' : 'text-gray-600'}`}>{subtitle}</p>
+        <p className={`text-base sm:text-lg max-w-2xl ${light ? 'text-white/70' : 'text-gray-600'}`}>{subtitle}</p>
       )}
-      <div className="w-24 h-1 bg-[#3db5e6] mt-4 rounded-full"></div>
+      <div className="w-16 h-1.5 bg-[#3db5e6] mt-5 rounded-full"></div>
     </div>
   );
 };

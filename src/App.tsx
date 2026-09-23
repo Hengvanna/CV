@@ -6,10 +6,11 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-import { personalInfo, skills, experiences, educations, projects } from './data/resume-data';
+import { personalInfo, skills, experiences, educations, projects, certificates } from './data/resume-data';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -48,6 +49,7 @@ const App: React.FC = () => {
       <Skills skills={skills} />
       <Experience experiences={experiences} />
       <Education educations={educations} />
+      <Certificates certificates={certificates} />
       <Projects projects={projects} />
       <Contact personalInfo={personalInfo} />
       <Footer personalInfo={personalInfo} />

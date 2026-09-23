@@ -8,6 +8,8 @@ export default {
         fadeInUp: 'fadeInUp 0.7s ease-out both',
         fadeInRight: 'fadeInRight 0.8s ease-out both',
         bounce: 'bounce 1s ease-in-out infinite',
+        orbit: 'orbit 24s linear infinite',
+        orbitReverse: 'orbitReverse 24s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -30,6 +32,14 @@ export default {
             transform: 'translateY(-10px)',
           },
         },
+        orbit: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+        orbitReverse: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(-360deg)' },
+        },
       },
       fontFamily: {
         sans: [
@@ -42,6 +52,13 @@ export default {
           'Roboto',
           'Helvetica Neue',
           'Arial',
+          'sans-serif',
+        ],
+        display: [
+          'Plus Jakarta Sans',
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
           'sans-serif',
         ],
       },

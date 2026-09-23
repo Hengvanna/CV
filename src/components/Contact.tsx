@@ -27,7 +27,6 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Form validation
     if (!formData.name || !formData.email || !formData.message) {
       setError('Please fill out all required fields');
       return;
@@ -38,12 +37,9 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
       return;
     }
     
-    // In a real application, you'd send the form data to a server
-    // For this demo, we'll just simulate a successful submission
     setError('');
     setSubmitted(true);
     
-    // Reset form after submission
     setFormData({
       name: '',
       email: '',
@@ -55,9 +51,12 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
   const isValidEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
+
+  const inputClass =
+    'w-full px-4 py-2.5 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white placeholder-white/30';
   
   return (
-    <section id="contact" className="py-16 bg-[#13284c]">
+    <section id="contact" className="scroll-mt-24 py-20 bg-[#13284c]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           light
@@ -67,18 +66,18 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="font-display text-2xl font-bold text-white mb-6">
               Get In Touch
             </h3>
             
-            <p className="text-lg text-white mb-8 leading-relaxed">
+            <p className="text-lg text-white/90 mb-8 leading-relaxed">
               I'm always open to new opportunities and collaborations. Feel free to reach out
               if you have any questions or want to discuss a potential project.
             </p>
             
-            <div className="bg-[#0f2038] rounded-lg p-6 shadow-md mb-8">
+            <div className="rounded-2xl border border-white/10 bg-[#0b1c33] p-6 shadow-xl">
               <div className="flex items-start space-x-4">
-                <div className="bg-[#13284c] rounded-full p-3">
+                <div className="bg-[#3db5e6]/15 rounded-full p-3">
                   <Mail className="w-6 h-6 text-[#3db5e6]" />
                 </div>
                 <div>
@@ -99,12 +98,12 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
             </div>
           </div>
           
-          <div className="bg-[#0f2038] rounded-lg p-8 shadow-md">
+          <div className="rounded-2xl border border-white/10 bg-[#0b1c33] p-8 shadow-xl">
             {submitted ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-green-900/40 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg 
-                    className="w-8 h-8 text-green-600 dark:text-green-400" 
+                    className="w-8 h-8 text-green-400" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24" 
@@ -118,7 +117,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="font-display text-2xl font-bold text-white mb-2">
                   Message Sent!
                 </h3>
                 <p className="text-white/70 mb-6">
@@ -133,12 +132,12 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <h3 className="text-2xl font-bold text-white mb-6">
+                <h3 className="font-display text-2xl font-bold text-white mb-6">
                   Send Me A Message
                 </h3>
                 
                 {error && (
-                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                  <div className="bg-red-900/40 border border-red-400/40 text-red-200 px-4 py-3 rounded-xl mb-4">
                     {error}
                   </div>
                 )}
@@ -149,7 +148,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       htmlFor="name" 
                       className="block text-sm font-medium text-white mb-1"
                     >
-                      Name <span className="text-red-500">*</span>
+                      Name <span className="text-red-400">*</span>
                     </label>
                     <input 
                       type="text" 
@@ -157,7 +156,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       name="name" 
                       value={formData.name} 
                       onChange={handleChange} 
-                      className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
+                      className={inputClass} 
                       required 
                     />
                   </div>
@@ -167,7 +166,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       htmlFor="email" 
                       className="block text-sm font-medium text-white mb-1"
                     >
-                      Email <span className="text-red-500">*</span>
+                      Email <span className="text-red-400">*</span>
                     </label>
                     <input 
                       type="email" 
@@ -175,7 +174,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                       name="email" 
                       value={formData.email} 
                       onChange={handleChange} 
-                      className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
+                      className={inputClass} 
                       required 
                     />
                   </div>
@@ -194,7 +193,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     name="subject" 
                     value={formData.subject} 
                     onChange={handleChange} 
-                    className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
+                    className={inputClass} 
                   />
                 </div>
                 
@@ -203,7 +202,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     htmlFor="message" 
                     className="block text-sm font-medium text-white mb-1"
                   >
-                    Message <span className="text-red-500">*</span>
+                    Message <span className="text-red-400">*</span>
                   </label>
                   <textarea 
                     id="message" 
@@ -211,7 +210,7 @@ const ContactSection: React.FC<ContactProps> = ({ personalInfo }) => {
                     rows={5} 
                     value={formData.message} 
                     onChange={handleChange} 
-                    className="w-full px-4 py-2 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3db5e6] bg-[#13284c] text-white" 
+                    className={inputClass} 
                     required 
                   ></textarea>
                 </div>

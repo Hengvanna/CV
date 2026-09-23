@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SectionHeading from './ui/SectionHeading';
 import ProgressBar from './ui/ProgressBar';
+import { getSkillIcon } from './skill-icons';
 import { Skill } from '../types';
 
 interface SkillsProps {
@@ -28,7 +29,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
       : skills.filter(skill => skill.category === activeTab);
   
   return (
-    <section id="skills" className="py-16 bg-[#13284c]">
+    <section id="skills" className="scroll-mt-24 py-20 bg-[#10243f]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           light
@@ -36,15 +37,15 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           subtitle="My technical expertise and proficiency levels"
         />
         
-        <div className="mb-8 overflow-x-auto">
-          <div className="inline-flex space-x-2 border-b border-white/20 pb-2 min-w-full">
+        <div className="mb-10 overflow-x-auto">
+          <div className="inline-flex gap-2 rounded-full bg-[#0b1c33] p-1.5 border border-white/10 min-w-full sm:min-w-0">
             {tabs.map(tab => (
               <button
                 key={tab.id}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? 'bg-[#3db5e6] text-white'
-                    : 'text-white/80 hover:bg-white/10'
+                    ? 'bg-[#3db5e6] text-white shadow-md'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
                 onClick={() => setActiveTab(tab.id)}
               >
@@ -55,17 +56,26 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, index) => (
+          {filteredSkills.map((skill, index) => {
+            const Icon = getSkillIcon(skill.name);
+            return (
             <div
               key={skill.name}
-              className="bg-[#0f2038] rounded-lg p-6 shadow-md transition-transform hover:-translate-y-1"
+              className="rounded-2xl border border-white/10 bg-[#0b1c33] p-6 shadow-lg transition-transform hover:-translate-y-1"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-lg font-semibold text-white">
-                  {skill.name}
-                </h3>
-                <span className="text-sm font-medium text-white/70">
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  {Icon && (
+                    <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm text-[#13284c]">
+                      <Icon className="h-6 w-6" />
+                    </span>
+                  )}
+                  <h3 className="text-lg font-semibold text-white truncate">
+                    {skill.name}
+                  </h3>
+                </div>
+                <span className="text-sm font-medium text-white/70 ml-3">
                   {skill.level}%
                 </span>
               </div>
@@ -90,7 +100,8 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                 </span>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
